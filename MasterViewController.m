@@ -8,6 +8,9 @@
 
 #import "MasterViewController.h"
 
+#define PAINTCODE_COLORS @"Paintcode Colors"
+#define AVACHAT_COLORS @"Avachat Colors"
+
 @interface MasterViewController ()
 @property (weak) IBOutlet NSTextField *paintcodeColorTextField1;
 @property (weak) IBOutlet NSTextField *avachatColorTextField1;
@@ -18,23 +21,51 @@
 @property (weak) IBOutlet NSTextField *paintcodePaths;
 @property (weak) IBOutlet NSTextField *avachatPaths;
 
+- (IBAction)selectAllPaintcodePathsTextButton:(id)sender;
+- (IBAction)selectAllTextButton:(id)sender;
 - (IBAction)convertPathsButton:(NSButton *)sender;
 @end
 
 @implementation MasterViewController
 
+-(void)loadView
+{
+    [super loadView];
+//    NSArray *paintcodeColors = [[NSUserDefaults standardUserDefaults] objectForKey:PAINTCODE_COLORS];
+//    [self.paintcodeColorTextField1 setStringValue:paintcodeColors[0]];
+//    [self.paintcodeColorTextField2 setStringValue:paintcodeColors[1]];
+//    [self.paintcodeColorTextField3 setStringValue:paintcodeColors[2]];
+//    
+//    NSArray *avachatColors = [[NSUserDefaults standardUserDefaults] objectForKey:AVACHAT_COLORS];
+//    [self.avachatColorTextField1 setStringValue:avachatColors[0]];
+//    [self.avachatColorTextField2 setStringValue:avachatColors[1]];
+//    [self.avachatColorTextField3 setStringValue:avachatColors[2]];
+}
 
+- (IBAction)selectAllPaintcodePathsTextButton:(id)sender
+{
+        [self.paintcodePaths selectText:sender];
+}
+
+- (IBAction)selectAllTextButton:(id)sender
+{
+    [self.avachatPaths selectText:sender];
+    
+    NSPasteboard *pasteBoard = [NSPasteboard generalPasteboard];
+    [pasteBoard declareTypes:[NSArray arrayWithObjects:NSStringPboardType, nil] owner:nil];
+    [pasteBoard setString: [self.avachatPaths stringValue] forType:NSStringPboardType];
+}
 
 - (IBAction)convertPathsButton:(NSButton *)sender
 {
     
     //Put color conversions into a dictionary and remove empty text fields
-    NSMutableArray *paintcodeColors = [@[[self.paintcodeColorTextField1 stringValue], [self.paintcodeColorTextField2 stringValue], [self.paintcodeColorTextField3 stringValue]] mutableCopy];
-    paintcodeColors = [self removeEmptyStringsFromArray:paintcodeColors];
+    NSMutableArray *paintcodeColorsUnstripped = [@[[self.paintcodeColorTextField1 stringValue], [self.paintcodeColorTextField2 stringValue], [self.paintcodeColorTextField3 stringValue]] mutableCopy];
+    NSMutableArray *paintcodeColors = [self removeEmptyStringsFromArray:paintcodeColorsUnstripped];
     NSLog(@"Paintcode Colors from textfields: %@", paintcodeColors);
     
-    NSMutableArray *avachatColors = [@[[self.avachatColorTextField1 stringValue], [self.avachatColorTextField2 stringValue], [self.avachatColorTextField3 stringValue]] mutableCopy];
-    [self removeEmptyStringsFromArray:paintcodeColors];
+    NSMutableArray *avachatColorsUnstripped = [@[[self.avachatColorTextField1 stringValue], [self.avachatColorTextField2 stringValue], [self.avachatColorTextField3 stringValue]] mutableCopy];
+    NSMutableArray *avachatColors = [self removeEmptyStringsFromArray:avachatColorsUnstripped];
     NSLog(@"Avachat Colors from textfields: %@", avachatColors);
     
     //Create an array of colors and an array of bezier paths
@@ -87,6 +118,10 @@
     NSString *finalTransformation = [transformedStrings componentsJoinedByString:@"\n"];
     [self.avachatPaths setStringValue:finalTransformation];
     
+    //save colors in text fields to NSUserdefaults
+//    [[NSUserDefaults standardUserDefaults] setObject:paintcodeColors forKey:PAINTCODE_COLORS];
+//    [[NSUserDefaults standardUserDefaults] setObject:avachatColors forKey:AVACHAT_COLORS];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 
