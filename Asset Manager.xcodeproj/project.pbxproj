@@ -12,6 +12,8 @@
 		150AA0B21A0323FA006D18A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 150AA0B11A0323FA006D18A6 /* Images.xcassets */; };
 		150AA0B51A0323FA006D18A6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 150AA0B31A0323FA006D18A6 /* MainMenu.xib */; };
 		150AA0C11A0323FA006D18A6 /* Asset_ManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 150AA0C01A0323FA006D18A6 /* Asset_ManagerTests.m */; };
+		150AA0CD1A03374E006D18A6 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 150AA0CB1A03374E006D18A6 /* MasterViewController.m */; };
+		150AA0CE1A03374E006D18A6 /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 150AA0CC1A03374E006D18A6 /* MasterViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,9 @@
 		150AA0BA1A0323FA006D18A6 /* Asset ManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Asset ManagerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		150AA0BF1A0323FA006D18A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		150AA0C01A0323FA006D18A6 /* Asset_ManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Asset_ManagerTests.m; sourceTree = "<group>"; };
+		150AA0CA1A03374E006D18A6 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MasterViewController.h; path = ../MasterViewController.h; sourceTree = "<group>"; };
+		150AA0CB1A03374E006D18A6 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MasterViewController.m; path = ../MasterViewController.m; sourceTree = "<group>"; };
+		150AA0CC1A03374E006D18A6 /* MasterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MasterViewController.xib; path = ../MasterViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +81,9 @@
 		150AA0A91A0323FA006D18A6 /* Asset Manager */ = {
 			isa = PBXGroup;
 			children = (
+				150AA0CA1A03374E006D18A6 /* MasterViewController.h */,
+				150AA0CB1A03374E006D18A6 /* MasterViewController.m */,
+				150AA0CC1A03374E006D18A6 /* MasterViewController.xib */,
 				150AA0AE1A0323FA006D18A6 /* AppDelegate.h */,
 				150AA0AF1A0323FA006D18A6 /* AppDelegate.m */,
 				150AA0B11A0323FA006D18A6 /* Images.xcassets */,
@@ -193,6 +201,7 @@
 			files = (
 				150AA0B21A0323FA006D18A6 /* Images.xcassets in Resources */,
 				150AA0B51A0323FA006D18A6 /* MainMenu.xib in Resources */,
+				150AA0CE1A03374E006D18A6 /* MasterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				150AA0B01A0323FA006D18A6 /* AppDelegate.m in Sources */,
+				150AA0CD1A03374E006D18A6 /* MasterViewController.m in Sources */,
 				150AA0AD1A0323FA006D18A6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
